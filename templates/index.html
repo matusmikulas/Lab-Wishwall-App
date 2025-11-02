@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="POST" action="/wish">
+  <label for="name">Your name (optional)</label>
+  <input id="name" name="name" maxlength="80" placeholder="e.g., peter" />
+
+  <label for="message">Your wish</label>
+  <textarea id="message" name="message" maxlength="280" required placeholder="I wish..."></textarea>
+
+  <button type="submit">Post wish</button>
+</form>
+
+<section aria-label="Recent wishes">
+  {% for w in wishes %}
+    <article class="wish">
+      <div>{{ w.message }}</div>
+      <small>
+        {% if w.name %}— {{ w.name }}, {% endif %}
+        {{ w.created_at.strftime("%Y-%m-%d %H:%M") }}
+      </small>
+    </article>
+  {% else %}
+    <p>No wishes yet. Be the first!</p>
+  {% endfor %}
+</section>
+
+{% endblock %}

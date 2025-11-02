@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  wishwall-app:
+    build: .
+    container_name: wishwall_app
+    restart: always
+    environment:
+      FLASK_DEBUG: ${FLASK_DEBUG}
+      FLASK_SECRET_KEY: ${FLASK_SECRET_KEY}
+      DATABASE_URL: ${DATABASE_URL}
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
